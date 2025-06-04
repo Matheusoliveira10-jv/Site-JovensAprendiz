@@ -5,7 +5,7 @@ Site Para Ajudar Estudantes a Encontra Vagas De Jovem Aprendiz
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jovem Aprendiz - Conectando Estudantes a Oportunidades</title>
+    Jovem Aprendiz - Conectando Estudantes a Oportunidades
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -13,7 +13,7 @@ Site Para Ajudar Estudantes a Encontra Vagas De Jovem Aprendiz
     <header>
         <div class="logo">
             <h1>Jovem Aprendiz</h1>
-            <p>Conectando Estudantes a Oportunidades</p>
+            Conectando Estudantes a Oportunidades
         </div>
         <nav>
             <ul>
@@ -133,3 +133,21 @@ Site Para Ajudar Estudantes a Encontra Vagas De Jovem Aprendiz
     </footer>
 </body>
 </html>  
+<input type="text" id="search" placeholder="Buscar por cidade...">
+<button onclick="filterVagas()">Buscar</button>
+
+<script>
+    function filterVagas() {
+        let search = document.getElementById('search').value.toLowerCase();
+        let vagas = document.querySelectorAll('.vaga');
+        
+        vagas.forEach(vaga => {
+            let cidade = vaga.querySelector('p').textContent.toLowerCase();
+            if (cidade.includes(search)) {
+                vaga.style.display = 'block';
+            } else {
+                vaga.style.display = 'none';
+            }
+        });
+    }
+</script>    
